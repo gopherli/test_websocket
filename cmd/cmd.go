@@ -5,6 +5,7 @@ import (
 	"github.com/spf13/cobra"
 	"os"
 	"test_websocket/client"
+	"test_websocket/rpc"
 	"test_websocket/server"
 )
 
@@ -15,7 +16,7 @@ func init() {
 var rootCmd = &cobra.Command{
 	Use:   "help",
 	Short: "start and stop",
-	Long:  "input cmd help for werewolf cmd list",
+	Long:  "input cmd help for grpc cmd list",
 	Run:   func(cmd *cobra.Command, args []string) {},
 }
 
@@ -38,6 +39,8 @@ func startServerOrClient(name string) {
 		server.StartWebsocketServe()
 	case "client":
 		client.StartWebsocketClient()
+	case "rpc":
+		rpc.StartClient()
 	}
 }
 func Execute() {

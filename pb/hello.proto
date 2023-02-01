@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = ".;pb";
+
+service Greet {
+  rpc HelloWorld (Request) returns(Response);
+}
+
+message Request {
+  string ping = 1;
+}
+
+message Response {
+  string  pong = 1;
+}
